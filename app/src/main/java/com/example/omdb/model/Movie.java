@@ -67,4 +67,56 @@ public class Movie {
     public String getImdbId() {
         return imdbID;
     }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public void setRated(String rated) {
+        this.rated = rated;
+    }
+
+    public void setReleased(String released) {
+        this.released = released;
+    }
+
+    public void setRuntime(String runtime) {
+        this.runtime = runtime;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public void setWriter(String writer) {
+        this.writer = writer;
+    }
+
+    public void setActors(String actors) {
+        this.actors = actors;
+    }
+
+    public void setPlot(String plot) {
+        this.plot = plot;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public void setAwards(String awards) {
+        this.awards = awards;
+    }
+
+    public void setImdbID(String imdbID) {
+        this.imdbID = imdbID;
+    }
 }

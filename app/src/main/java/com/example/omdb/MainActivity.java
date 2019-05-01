@@ -21,8 +21,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
+    //api
+    // "http://www.omdbapi.com/?t=&apikey=8eeefbee&
+    // + fbclid=IwAR11mOertkAkbwBZZ_dHeJo7Nn3SZA0xZnWI2FLMUQ7N4VdqZiFgsE5LTfY";
+
     private static final String TAG = "MainActivity";
-    public static final String BASE_URL = "http://www.omdbapi.com/?apikey=8eeefbee&";
+    public static final String BASE_URL = "http://www.omdbapi.com/?t=batman&apikey=8eeefbee&";
 
     private TextView tv_result;
 
@@ -47,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void  getMovies() {
-        Call<List<Movie>> call = apiInterface.getMovies();
+        Call<List<Movie>> call = apiInterface.getMovies("batman");
 
         call.enqueue(new Callback<List<Movie>>() {
             @Override
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!response.isSuccessful()) {
                     tv_result.setText("Response: " + response.code());
                     Log.d(TAG, "onResponse: " + response.code());
+                    return;
                 }
 
                 List<Movie> movies = response.body();
@@ -96,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Movie>> call, Throwable t) {
+                tv_result.setText("" + t.getMessage());
                 Log.d(TAG, "failed.... " + t.getMessage());
             }
         });
